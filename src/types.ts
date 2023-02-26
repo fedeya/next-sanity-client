@@ -1,6 +1,4 @@
-import type * as Next from 'next';
-
-interface ClientConfig<
+export interface ClientConfig<
   T extends Record<string, string> = Record<string, string>
 > {
   projectId: string;
@@ -11,14 +9,14 @@ interface ClientConfig<
   queries?: T;
 }
 
-interface FetchConfig {
+export interface FetchConfig {
   cache?: RequestCache;
   next?: NextFetchRequestConfig;
 }
 
-type Union<T> = T | (string & {});
+export type Union<T> = T | (string & {});
 
-type ClientFetch<T = unknown, P = Record<string, unknown>> = (params: {
+export type ClientFetch<T = unknown, P = Record<string, unknown>> = (params: {
   params?: P;
   query: string;
   config?: FetchConfig;
