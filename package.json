@@ -1,19 +1,26 @@
 {
   "name": "next-sanity-client",
   "version": "1.0.0",
-  "description": "",
+  "description": "sanity client for next.js with support for app directory",
+  "private": false,
   "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "prepublish": "tsc"
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Fedeya/next-sanity-client.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "next",
+    "sanity",
+    "client",
+    "next-sanity-client"
+  ],
+  "author": "Fedeya <elfedeminaya@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Fedeya/next-sanity-client/issues"
   },
