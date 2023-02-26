@@ -85,12 +85,18 @@ And you can create a function to fetch that query using it name, full typed
 // lib/api.ts
 export const getTodos = client.createApiUtil<Todo[]>('getTodosQuery');
 
+// here also you can set the default caching strategy
 export const getTodo = client.createApiUtil<Todo, { id: string }>(
-  'getTodoQuery'
+  'getTodoQuery',
+  {
+    cache: 'no-cache'
+  }
 );
 
 // or use your own query
-export const getProducts = client.createApiUtil<Product[]>(queries.getProducts);
+export const getProducts = client.createApiUtil<Product[]>(queries.getProducts, {
+  cache: 'no-cache'
+});
 ```
 Next in your Server Components:
 ```ts

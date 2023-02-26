@@ -16,8 +16,12 @@ export interface FetchConfig {
 
 export type Union<T> = T | (string & {});
 
-export type ClientFetch<T = unknown, P = Record<string, unknown>> = (params: {
+export type ClientFetch<T = unknown, P = Record<string, unknown>> = (
+  params: ClientFetchParams<P>
+) => Promise<T>;
+
+export type ClientFetchParams<P = Record<string, unknown>> = {
   params?: P;
   query: string;
   config?: FetchConfig;
-}) => Promise<T>;
+};
