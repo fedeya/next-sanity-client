@@ -1,0 +1,27 @@
+{
+  "name": "next-sanity-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fedeya/next-sanity-client.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fedeya/next-sanity-client/issues"
+  },
+  "homepage": "https://github.com/Fedeya/next-sanity-client#readme",
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  },
+  "peerDependencies": {
+    "next": "latest"
+  }
+}
