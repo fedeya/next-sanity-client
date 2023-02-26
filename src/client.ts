@@ -1,4 +1,9 @@
-import type { ClientConfig, ClientFetch, FetchConfig, Union } from './types';
+import type {
+  ClientConfig,
+  ClientFetchParams,
+  FetchConfig,
+  Union
+} from './types';
 import { getQueryString } from './utils';
 
 const API_HOST = 'api.sanity.io';
@@ -9,8 +14,12 @@ export class SanityClient<
 > {
   constructor(private config: ClientConfig<Q>) {}
 
-  fetch: ClientFetch = async ({ query, params, config }) => {
-    const qs = getQueryString(query, params);
+  async fetch<T = unknown, P = Record<string, unknown>>({
+    query,
+    params,
+    config
+  }: ClientFetchParams<P>): Promise<T> {
+    const qs = getQueryString(query, params as any);
 
     const usePost = qs.length > 11264;
 
@@ -49,7 +58,7 @@ export class SanityClient<
     }
 
     throw new Error(`Error fetching data: ${res.statusText}`);
-  };
+  }
 
   public createApiUtil<
     T = unknown,
@@ -63,11 +72,11 @@ export class SanityClient<
     return async (params?: P & FetchConfig): Promise<T> => {
       const { cache, next, ...rest } = params || {};
 
-      return this.fetch({
+      return this.fetch<T>({
         query: groqQuery,
         params: Object.keys(rest).length > 0 ? rest : undefined,
         config: { cache: cache ?? config?.cache, next: next ?? config?.next }
-      }) as unknown as T;
+      });
     };
   }
 }
