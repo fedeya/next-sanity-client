@@ -112,7 +112,7 @@ const products = await getProducts({ cache: 'force-cache' });
 
 ## Author
 
-👤 **Fedeya <elfedeminaya@gmail.com>**
+👤 **Fedeya <hello@fedeminaya.com>**
 
 - Website: [fedeminaya.com](https://fedeminaya.com)
 - Twitter: [@fedeminaya](https://twitter.com/fedeminaya)
