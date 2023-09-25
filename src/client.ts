@@ -17,9 +17,10 @@ export class SanityClient<
   async fetch<T = unknown, P = Record<string, unknown>>({
     query,
     params,
-    config
+    config,
+    perspective = "raw"
   }: ClientFetchParams<P>): Promise<T> {
-    const qs = getQueryString(query, params as any);
+    const qs = getQueryString(query, perspective, params as any);
 
     const usePost = qs.length > 11264;
 
