@@ -24,4 +24,5 @@ export type ClientFetchParams<P = Record<string, unknown>> = {
   params?: P;
   query: string;
   config?: FetchConfig;
+  perspective?: "raw" | "published" | "previewDrafts";
 };

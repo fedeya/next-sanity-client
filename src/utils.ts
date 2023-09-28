@@ -1,4 +1,4 @@
-export function getQueryString(query: string, params?: Record<string, any>) {
+export function getQueryString(query: string, perspective: string, params?: Record<string, any>) {
   const enc = encodeURIComponent;
 
   const queryParam = `?query=${enc(query)}`;
@@ -9,5 +9,7 @@ export function getQueryString(query: string, params?: Record<string, any>) {
     .map(([key, value]) => `${enc(`$${key}`)}=${enc(JSON.stringify(value))}`)
     .join('&');
 
-  return `${queryParam}&${paramsParam}`;
+  const perspectiveParam = `perspective=${enc(perspective)}`
+
+  return `${queryParam}&${paramsParam}&${perspectiveParam}`;
 }
