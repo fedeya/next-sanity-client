@@ -39,7 +39,7 @@ export class SanityClient<
 
     const url = `https://${this.config.projectId}.${host}/${version}/data/query/${this.config.dataset}`;
 
-    const res = await fetch(`${url}${usePost ? '' : qs}`, {
+    const res = await fetch(`${url}${usePost ? `?perspective=${encodeURIComponent(perspective)}` : qs}`, {
       method: usePost ? 'POST' : 'GET',
       body: usePost ? JSON.stringify({ query, params: params }) : undefined,
       headers,
